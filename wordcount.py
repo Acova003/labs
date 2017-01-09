@@ -1,4 +1,8 @@
-# put your code here.
+#from sys import argv
+
+#wordcount.py, text_file = argv
+
+
 def word_counter(text_file):
     """Inputting a file to print how many times a word occurs in that file."""
     word_count = {}
@@ -10,7 +14,8 @@ def word_counter(text_file):
         words = line.rstrip().split()
         #split line from texts file into list
         for word in words:
-            word_count[word] = word_count.get(word, 0) + 1
+            new_word = word.lower().strip("!,.?:#*[]()-_\"")
+            word_count[new_word] = word_count.get(new_word, 0) + 1
             #iterate over each word
             #add or increment to dictionary
             #print out word, count
@@ -18,7 +23,7 @@ def word_counter(text_file):
     for key, value in word_count.items():
         print key, value
 
-    text_file.close()
+#print word_counter(argv[0])
 
 word_counter("test.txt")
 #word_counter("twain.txt")
